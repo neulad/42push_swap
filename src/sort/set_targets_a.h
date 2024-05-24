@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_num.c                                           :+:      :+:    :+:   */
+/*   set_targets_a.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 13:17:04 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/23 12:54:24 by ukireyeu         ###   ########.fr       */
+/*   Created: 2024/05/24 16:02:58 by ukireyeu          #+#    #+#             */
+/*   Updated: 2024/05/24 17:00:14 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../lib/libft.h"
 
-int	is_num(char *str)
-{
-	while (*str)
-	{
-		if (!ft_strchr("-0123456789", *str))
-			return (0);
-		++str;
-	}
-	return (1);
-}
+#pragma once
+
+#include "../push_swap.h"
+
+void	set_tagrets_a(t_node *stack_a, t_node *stack_b);

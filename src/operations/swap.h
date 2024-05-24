@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_num.c                                           :+:      :+:    :+:   */
+/*   swap.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 13:17:04 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/23 12:54:24 by ukireyeu         ###   ########.fr       */
+/*   Created: 2024/05/23 12:56:35 by ukireyeu          #+#    #+#             */
+/*   Updated: 2024/05/23 13:50:36 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../lib/libft.h"
+#pragma once
 
-int	is_num(char *str)
-{
-	while (*str)
-	{
-		if (!ft_strchr("-0123456789", *str))
-			return (0);
-		++str;
-	}
-	return (1);
-}
+#include "../push_swap.h"
+
+void	sa(t_node **a);
+void	sb(t_node **b);
+void	ss(t_node **a, t_node **b);

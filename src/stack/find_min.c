@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_num.c                                           :+:      :+:    :+:   */
+/*   find_min.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 13:17:04 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/23 12:54:24 by ukireyeu         ###   ########.fr       */
+/*   Created: 2024/05/24 16:26:37 by ukireyeu          #+#    #+#             */
+/*   Updated: 2024/05/24 16:28:33 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../lib/libft.h"
+#include "../push_swap.h"
+#include <stdlib.h>
+#include <limits.h>
 
-int	is_num(char *str)
+t_node *find_min(t_node *stack)
 {
-	while (*str)
+	long min;
+	t_node *min_node;
+
+	if (!stack)
+		return (NULL);
+	min = LONG_MAX;
+	while (stack)
 	{
-		if (!ft_strchr("-0123456789", *str))
-			return (0);
-		++str;
+		if (stack->nbr < min)
+		{
+			min = stack->nbr;
+			min_node = stack;
+		}
+		stack = stack->next;
 	}
-	return (1);
+	return (min_node);
 }

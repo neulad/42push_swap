@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_num.c                                           :+:      :+:    :+:   */
+/*   stack_len.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 13:17:04 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/23 12:54:24 by ukireyeu         ###   ########.fr       */
+/*   Created: 2024/05/23 13:57:41 by ukireyeu          #+#    #+#             */
+/*   Updated: 2024/05/23 13:58:16 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../lib/libft.h"
+#include "../push_swap.h"
 
-int	is_num(char *str)
+int	stack_len(t_node *stack)
 {
-	while (*str)
+	int	count;
+
+	if (!stack)
+		return (0);
+	count = 0;
+	while (stack)
 	{
-		if (!ft_strchr("-0123456789", *str))
-			return (0);
-		++str;
+		stack = stack->next;
+		count++;
 	}
-	return (1);
+	return (count);
 }

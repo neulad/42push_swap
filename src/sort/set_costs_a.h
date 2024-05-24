@@ -1,24 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_num.c                                           :+:      :+:    :+:   */
+/*   set_costs_a.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 13:17:04 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/23 12:54:24 by ukireyeu         ###   ########.fr       */
+/*   Created: 2024/05/24 18:31:52 by ukireyeu          #+#    #+#             */
+/*   Updated: 2024/05/24 18:34:16 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../lib/libft.h"
+#pragma once
 
-int	is_num(char *str)
-{
-	while (*str)
-	{
-		if (!ft_strchr("-0123456789", *str))
-			return (0);
-		++str;
-	}
-	return (1);
-}
+#include "../push_swap.h"
+
+void	set_costs(t_node *stack_a, t_node *stack_b);

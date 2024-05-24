@@ -6,13 +6,18 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:34:06 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/22 18:51:35 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/24 14:43:37 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/ft_printf.h"
 #include "./init.h"
 #include "./push_swap.h"
+#include "./stack/is_sorted.h"
+#include "./stack/stack_len.h"
+#include "./sort/sort_three.h"
+#include "./operations/swap.h"
+#include "./sort/sort_stacks.h"
 
 int	main(int argc, char **argv)
 {
@@ -31,5 +36,15 @@ int	main(int argc, char **argv)
 		ft_printf("Error\n");
 		return (1);
 	}
+	if (!is_sorted(stack_a))
+	{
+		if (stack_len(stack_a) == 2)
+			sa(&stack_a);
+		else if (stack_len(stack_a) == 3)
+			sort_three(&stack_a);
+		else
+			sort_stacks(stack_a, stack_b);
+	}
 	return (0);
 }
+

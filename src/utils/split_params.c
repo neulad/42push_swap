@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   split_params.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/23 12:26:41 by ukireyeu          #+#    #+#             */
+/*   Updated: 2024/05/23 12:31:28 by ukireyeu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../lib/libft.h"
+#include "../../lib/ft_printf.h"
 
 static size_t	ft_countword(char const *s, char c)
 {
@@ -17,6 +30,20 @@ static size_t	ft_countword(char const *s, char c)
 			s++;
 	}
 	return (count);
+}
+void	ft_free_words(char **words)
+{
+	char	**cwords;
+
+	if (!words)
+		return ;
+	cwords = words;
+	while (*words)
+	{
+		free(*words);
+		++words;
+	}
+	free(cwords);
 }
 
 char	**split_params(char *s, char c)

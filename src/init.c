@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:49:49 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/22 18:51:38 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/23 12:54:16 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ t_node	**fill_a(int argc, char **argv, t_node **stack_a)
 {
 	int		i;
 	int		temp_nbr;
+	int		flag_clean_argv;
 
 	i = 0;
 	++argv;
@@ -93,6 +94,7 @@ t_node	**fill_a(int argc, char **argv, t_node **stack_a)
 	{
 		argv = split_params(argv[0], ' ');
 		argc = count_argc(argv);
+		flag_clean_argv = 1;
 	}
 	while (i < argc)
 	{
@@ -106,5 +108,7 @@ t_node	**fill_a(int argc, char **argv, t_node **stack_a)
 		append_node(stack_a, temp_nbr);
 		++i;
 	}
+	if (flag_clean_argv)
+		ft_free_words(argv);
 	return (stack_a);
 }
