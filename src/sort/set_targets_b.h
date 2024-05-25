@@ -1,17 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_costs_a.h                                      :+:      :+:    :+:   */
+/*   set_targets_b.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 18:31:52 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/25 12:10:14 by ukireyeu         ###   ########.fr       */
+/*   Created: 2024/05/25 12:30:21 by ukireyeu          #+#    #+#             */
+/*   Updated: 2024/05/25 12:30:28 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-
-#include "../push_swap.h"
-
-void	set_costs_a(t_node *stack_a, t_node *stack_b);

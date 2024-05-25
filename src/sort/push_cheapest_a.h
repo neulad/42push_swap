@@ -1,17 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_costs_a.h                                      :+:      :+:    :+:   */
+/*   push_cheapest_a.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 18:31:52 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/25 12:10:14 by ukireyeu         ###   ########.fr       */
+/*   Created: 2024/05/25 10:28:40 by ukireyeu          #+#    #+#             */
+/*   Updated: 2024/05/25 11:49:20 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "../push_swap.h"
-
-void	set_costs_a(t_node *stack_a, t_node *stack_b);
+void	push_cheapest(t_node **stack_a, t_node **stack_b);
