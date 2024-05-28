@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 13:35:19 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/23 13:38:42 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:51:02 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 #include <limits.h>
 #include <stdlib.h>
 
-t_node *find_max(t_node *stack)
+t_node	*find_max(t_node *stack)
 {
-	long max;
-	t_node *max_node;
+	long	max;
+	t_node	*max_node;
 
 	if (!stack)
 		return (NULL);

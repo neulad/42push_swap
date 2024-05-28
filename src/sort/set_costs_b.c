@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 12:47:52 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/28 14:21:17 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:53:13 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 static void	index_stack(t_node *stack)
 {
-	int i;
-	int len;
+	int	i;
+	int	len;
 
 	i = 0;
 	len = stack_len(stack);
@@ -37,7 +37,8 @@ static int	count_regular_cost(t_node *node_b, int stack_b_len, int stack_a_len)
 	if (node_b->above_median)
 	{
 		if (node_b->target_node->above_median)
-			return (stack_b_len - node_b->index + stack_a_len - node_b->target_node->index);
+			return (stack_b_len - node_b->index
+				+ stack_a_len - node_b->target_node->index);
 		else
 			return (stack_b_len - node_b->index + node_b->target_node->index);
 	}

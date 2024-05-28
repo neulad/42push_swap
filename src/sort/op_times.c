@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 16:14:01 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/25 16:53:47 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:55:26 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 #include "../operations/rotate.h"
 #include "../stack/stack_len.h"
 
-void ra_moves(t_node **stack_a, t_node *node)
+void	ra_moves(t_node **stack_a, t_node *node)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < node->index)
@@ -27,11 +27,11 @@ void ra_moves(t_node **stack_a, t_node *node)
 	}
 }
 
-void rra_moves(t_node **stack_a, t_node *node)
+void	rra_moves(t_node **stack_a, t_node *node)
 {
-	int initial_len;
-	int i;
-	int n_moves;
+	int	initial_len;
+	int	i;
+	int	n_moves;
 
 	initial_len = stack_len(*stack_a);
 	i = 0;
@@ -43,9 +43,9 @@ void rra_moves(t_node **stack_a, t_node *node)
 	}
 }
 
-void rb_moves(t_node **stack_b, t_node *node)
+void	rb_moves(t_node **stack_b, t_node *node)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < node->index)
@@ -55,11 +55,11 @@ void rb_moves(t_node **stack_b, t_node *node)
 	}
 }
 
-void rrb_moves(t_node **stack_b, t_node *node)
+void	rrb_moves(t_node **stack_b, t_node *node)
 {
-	int initial_len;
-	int i;
-	int n_moves;
+	int	initial_len;
+	int	i;
+	int	n_moves;
 
 	initial_len = stack_len(*stack_b);
 	i = 0;

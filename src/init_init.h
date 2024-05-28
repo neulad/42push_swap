@@ -1,17 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_targets_a.h                                    :+:      :+:    :+:   */
+/*   init_init.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 16:02:58 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/28 15:54:10 by ukireyeu         ###   ########.fr       */
+/*   Created: 2024/05/28 15:38:11 by ukireyeu          #+#    #+#             */
+/*   Updated: 2024/05/28 15:43:57 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
-#include "../push_swap.h"
-
-void	set_tagrets_a(t_node *stack_a, t_node *stack_b);
+void	init_init(int *i, int *argc, char ***argv);
+void	set_argv_argc(int *argc, char ***argv, int *flag_clean_argv);

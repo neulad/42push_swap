@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 13:23:48 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/23 14:26:47 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:52:21 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 
 static void	rotate(t_node **stack)
 {
-	t_node *last_node;
+	t_node	*last_node;
 
 	if (!*stack || !(*stack)->next)
-		return;
+		return ;
 	last_node = find_last(*stack);
 	last_node->next = *stack;
 	*stack = (*stack)->next;

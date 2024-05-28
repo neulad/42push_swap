@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 13:13:49 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/28 14:14:55 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:58:43 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 #include "./rrx_moves.h"
 #include <limits.h>
 
-static t_node *find_cheapest(t_node *stack_a)
+static t_node	*find_cheapest(t_node *stack_a)
 {
-	int min;
-	t_node *cheapest_node;
+	int		min;
+	t_node	*cheapest_node;
 
 	min = INT_MAX;
 	while (stack_a)
@@ -38,17 +38,17 @@ static t_node *find_cheapest(t_node *stack_a)
 
 void	push_cheapest_b(t_node **stack_b, t_node **stack_a)
 {
-	t_node *cheapest_node;
+	t_node	*cheapest_node;
 
 	cheapest_node = find_cheapest(*stack_b);
 	if (cheapest_node->above_median)
 		if (cheapest_node->target_node->above_median)
 			b_rrx_moves(stack_b, stack_a, cheapest_node);
-		else
-		{
-			rrb_moves(stack_b, cheapest_node);
-			ra_moves(stack_a, cheapest_node->target_node);
-		}
+	else
+	{
+		rrb_moves(stack_b, cheapest_node);
+		ra_moves(stack_a, cheapest_node->target_node);
+	}
 	else
 	{
 		if (cheapest_node->target_node->above_median)

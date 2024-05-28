@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:34:06 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/28 15:29:38 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:34:24 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,5 @@ int	main(int argc, char **argv)
 		else
 			sort_stacks(&stack_a, &stack_b);
 	}
-	free_stack(&stack_a);
-	return (0);
+	return (free_stack(&stack_a), 0);
 }
-

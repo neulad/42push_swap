@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:02:48 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/25 12:38:59 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:54:24 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,3 @@ void	set_tagrets_a(t_node *stack_a, t_node *stack_b)
 		++i;
 	}
 }
-

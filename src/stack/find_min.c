@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:26:37 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/24 16:28:33 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:50:40 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 #include <stdlib.h>
 #include <limits.h>
 
-t_node *find_min(t_node *stack)
+t_node	*find_min(t_node *stack)
 {
-	long min;
-	t_node *min_node;
+	long	min;
+	t_node	*min_node;
 
 	if (!stack)
 		return (NULL);

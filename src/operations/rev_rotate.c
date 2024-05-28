@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 13:15:49 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/23 14:11:02 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:51:39 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 
 static void	rev_rotate(t_node **stack)
 {
-	t_node *last;
+	t_node	*last;
 
 	if (!*stack || !(*stack)->next)
-		return;
+		return ;
 	last = find_last(*stack);
 	last->prev->next = NULL;
 	last->next = *stack;
@@ -32,7 +32,7 @@ static void	rev_rotate(t_node **stack)
 void	rra(t_node **a)
 {
 	rev_rotate(a);
-		ft_printf("rra\n");
+	ft_printf("rra\n");
 }
 
 void	rrb(t_node **b)

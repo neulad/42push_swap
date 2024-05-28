@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 14:29:30 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/28 15:29:08 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:54:54 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 
 static void	index_stack(t_node *stack)
 {
-	int i;
-	int len;
+	int	i;
+	int	len;
 
 	i = 0;
 	len = stack_len(stack);

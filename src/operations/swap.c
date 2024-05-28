@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 12:58:25 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/23 14:10:45 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:52:05 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../../lib/ft_printf.h"
 #include <stdlib.h>
 
-static void swap(t_node **head)
+static void	swap(t_node **head)
 {
 	if (!*head || !(*head)->next)
 		return ;
@@ -27,19 +27,19 @@ static void swap(t_node **head)
 	(*head)->prev = NULL;
 }
 
-void sa(t_node **a)
+void	sa(t_node **a)
 {
 	swap(a);
 	ft_printf("sa\n");
 }
 
-void sb(t_node **b)
+void	sb(t_node **b)
 {
 	swap(b);
 	ft_printf("sb\n");
 }
 
-void ss(t_node **a, t_node **b)
+void	ss(t_node **a, t_node **b)
 {
 	swap(a);
 	swap(b);

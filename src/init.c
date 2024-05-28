@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:49:49 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/28 15:14:33 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:46:55 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,10 @@
 #include "./push_swap.h"
 #include "./utils/is_num.h"
 #include "./stack/free_stack.h"
-#include "./utils/split_params.h"
 #include "./utils/ft_atol.h"
 #include "./stack/find_last.h"
-
-static int	count_argc(char **argv)
-{
-	int	len;
-
-	len = 0;
-	while (argv[len])
-		++len;
-	return (len);
-}
+#include "./init_init.h"
+#include "./utils/split_params.h"
 
 int	check_argv(int argc, char **argv)
 {
@@ -56,10 +47,10 @@ static int	is_duplicate(t_node *a, int n)
 	return (0);
 }
 
-static void append_node(t_node **stack, int n)
+static void	append_node(t_node **stack, int n)
 {
-	t_node *node;
-	t_node *last_node;
+	t_node	*node;
+	t_node	*last_node;
 
 	if (!stack)
 		return ;
@@ -87,15 +78,9 @@ t_node	**fill_a(int argc, char **argv, t_node **stack_a)
 	long	temp_nbr;
 	int		flag_clean_argv;
 
-	i = 0;
-	++argv;
-	--argc;
+	init_init(&i, &argc, &argv);
 	if (argc == 1)
-	{
-		argv = split_params(argv[0], ' ');
-		argc = count_argc(argv);
-		flag_clean_argv = 1;
-	}
+		set_argv_argc(&argc, &argv, &flag_clean_argv);
 	while (i < argc)
 	{
 		if (!is_num(argv[i]))

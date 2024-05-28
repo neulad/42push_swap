@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 10:28:43 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/28 14:13:50 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:57:53 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ void	push_cheapest_a(t_node **stack_a, t_node **stack_b)
 	if (cheapest_node->above_median)
 		if (cheapest_node->target_node->above_median)
 			a_rrx_moves(stack_a, stack_b, cheapest_node);
-		else
-		{
-			rra_moves(stack_a, cheapest_node);
-			rb_moves(stack_b, cheapest_node->target_node);
-		}
+	else
+	{
+		rra_moves(stack_a, cheapest_node);
+		rb_moves(stack_b, cheapest_node->target_node);
+	}
 	else
 	{
 		if (cheapest_node->target_node->above_median)

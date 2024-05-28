@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 13:07:05 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/24 15:09:19 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:52:37 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ static void	push(t_node **dst, t_node **src)
 	}
 }
 
-void pa(t_node **a, t_node **b)
+void	pa(t_node **a, t_node **b)
 {
 	push(a, b);
 	ft_printf("pa\n");
 }
 
-void pb(t_node **b, t_node **a)
+void	pb(t_node **b, t_node **a)
 {
 	push(b, a);
 	ft_printf("pb\n");

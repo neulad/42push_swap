@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 12:30:10 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/25 12:46:21 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:53:42 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,16 @@
 
 static t_node	*find_closest_bigger(t_node *node_b, t_node *stack_a)
 {
-	t_node *min_node_a;
-	long temp_nodes_diff;
-	t_node *res;
+	t_node	*min_node_a;
+	long	temp_nodes_diff;
+	t_node	*res;
 
 	min_node_a = find_min(stack_a);
 	temp_nodes_diff = LONG_MAX;
 	while (stack_a)
 	{
-		if (node_b->nbr < stack_a->nbr && stack_a->nbr - node_b->nbr < temp_nodes_diff)
+		if (node_b->nbr < stack_a->nbr
+			&& stack_a->nbr - node_b->nbr < temp_nodes_diff)
 		{
 			temp_nodes_diff = (long)(stack_a->nbr - node_b->nbr);
 			res = stack_a;

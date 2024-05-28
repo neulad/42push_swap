@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 12:26:41 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/23 12:31:28 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:59:19 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static size_t	ft_countword(char const *s, char c)
 	}
 	return (count);
 }
+
 void	ft_free_words(char **words)
 {
 	char	**cwords;

@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 13:35:12 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/23 13:35:49 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:50:06 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,4 +14,4 @@
 
 #include "../push_swap.h"
 
-t_node *find_max(t_node *stack);
+t_node	*find_max(t_node *stack);

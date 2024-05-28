@@ -3,6 +3,8 @@
 		"limits.h": "c",
 		"stdlib.h": "c",
 		"rev_rotate.h": "c",
-		"stack_len.h": "c"
+		"stack_len.h": "c",
+		"ft_atol.h": "c",
+		"is_num.h": "c"
 	}
 }

@@ -19,7 +19,7 @@ CC_SORT := ./src/sort/sort_three.c \
 	./src/sort/rrx_moves.c \
 	./src/sort/op_times.c
 CC_UTILS := ./src/utils/is_num.c ./src/utils/split_params.c ./src/utils/ft_atol.c
-CC_SRC := ./src/init.c ./src/push_swap.c
+CC_SRC := ./src/init.c ./src/push_swap.c ./src/init_init.c
 CC_OPERATIONS := ./src/operations/push.c \
 	./src/operations/rev_rotate.c \
 	./src/operations/rotate.c \
