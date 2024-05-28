@@ -6,13 +6,12 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:02:48 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/25 12:37:20 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/25 12:38:59 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include "../stack/stack_len.h"
-#include "../stack/find_min.h"
 #include "../stack/find_max.h"
 #include <limits.h>
 

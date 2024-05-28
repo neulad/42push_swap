@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 14:29:30 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/25 12:17:23 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:29:08 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,33 +16,66 @@
 #include "../stack/is_sorted.h"
 #include "../../lib/ft_printf.h"
 #include "./set_targets_a.h"
+#include "../sort/set_targets_b.h"
 #include "./set_costs_a.h"
+#include "./set_costs_b.h"
 #include "../sort/push_cheapest_a.h"
+#include "../sort/push_cheapest_b.h"
 #include "../sort/sort_three.h"
+#include "../stack/find_min.h"
+#include "../operations/rotate.h"
+#include "../operations/rev_rotate.h"
 
-void	sort_stacks(t_node *stack_a, t_node *stack_b)
+static void	index_stack(t_node *stack)
+{
+	int i;
+	int len;
+
+	i = 0;
+	len = stack_len(stack);
+	while (stack)
+	{
+		stack->index = i;
+		if (i == len / 2 && len % 2 != 0)
+			stack->above_median = 0;
+		else
+			stack->above_median = i >= (len / 2);
+		stack = stack->next;
+		++i;
+	}
+}
+
+static void	wrap_up(t_node **stack_a)
+{
+	while ((*stack_a)->nbr != find_min(*stack_a)->nbr)
+	{
+		if (find_min(*stack_a)->above_median)
+			ra(stack_a);
+		else
+			rra(stack_a);
+	}
+}
+
+void	sort_stacks(t_node **stack_a, t_node **stack_b)
 {
 	int		i;
 
 	i = 0;
-	while (i++ < 2 && stack_len(stack_a) > 3)
-		pb(&stack_b, &stack_a);
-	while (stack_len(stack_a) > 3)
+	while (i++ < 2 && stack_len(*stack_a) > 3)
+		pb(stack_b, stack_a);
+	while (stack_len(*stack_a) > 3)
 	{
-		set_tagrets_a(stack_a, stack_b);
-		set_costs_a(stack_a, stack_b);
-		push_cheapest(&stack_a, &stack_b);
+		set_tagrets_a(*stack_a, *stack_b);
+		set_costs_a(*stack_a, *stack_b);
+		push_cheapest_a(stack_a, stack_b);
 	}
-	sort_three(&stack_a);
-	ft_printf("After pushing\n----------------\n");
-	while (stack_a)
+	sort_three(stack_a);
+	while (stack_len(*stack_b))
 	{
-		ft_printf("stack_a: %d\n", stack_a->nbr);
-		stack_a = stack_a->next;
+		set_tagrets_b(*stack_b, *stack_a);
+		set_costs_b(*stack_b, *stack_a);
+		push_cheapest_b(stack_b, stack_a);
 	}
-	while (stack_b)
-	{
-		ft_printf("stack_b: %d\n", stack_b->nbr);
-		stack_b = stack_b->next;
-	}
+	index_stack(*stack_a);
+	wrap_up(stack_a);
 }

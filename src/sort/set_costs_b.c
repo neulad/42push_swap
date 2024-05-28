@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_costs_a.c                                      :+:      :+:    :+:   */
+/*   set_costs_b.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 17:44:56 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/28 14:20:34 by ukireyeu         ###   ########.fr       */
+/*   Created: 2024/05/25 12:47:52 by ukireyeu          #+#    #+#             */
+/*   Updated: 2024/05/28 14:21:17 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 static void	index_stack(t_node *stack)
 {
-	int		i;
-	int		len;
+	int i;
+	int len;
 
 	i = 0;
 	len = stack_len(stack);
@@ -32,47 +32,43 @@ static void	index_stack(t_node *stack)
 	}
 }
 
-static int	count_regular_cost(t_node *node_a, int stack_a_len, int stack_b_len)
+static int	count_regular_cost(t_node *node_b, int stack_b_len, int stack_a_len)
 {
-	if (node_a->above_median)
+	if (node_b->above_median)
 	{
-		if (node_a->target_node->above_median)
-			return (stack_a_len - node_a->index
-				+ stack_b_len - node_a->target_node->index);
+		if (node_b->target_node->above_median)
+			return (stack_b_len - node_b->index + stack_a_len - node_b->target_node->index);
 		else
-			return (stack_a_len - node_a->index
-				+node_a->target_node->index);
+			return (stack_b_len - node_b->index + node_b->target_node->index);
 	}
 	else
 	{
-		if (node_a->target_node->above_median)
-			return (node_a->index
-				+ stack_b_len - node_a->target_node->index);
+		if (node_b->target_node->above_median)
+			return (node_b->index + stack_a_len - node_b->target_node->index);
 		else
-			return (node_a->index
-				+ node_a->target_node->index);
+			return (node_b->index + node_b->target_node->index);
 	}
 }
 
-static void	set_cost(t_node *node_a, t_node *stack_a, t_node *stack_b)
+static void	set_cost(t_node *node_b, t_node *stack_b, t_node *stack_a)
 {
 	int	stack_a_len;
 	int	stack_b_len;
 
 	stack_a_len = stack_len(stack_a);
 	stack_b_len = stack_len(stack_b);
-	node_a->push_cost = count_regular_cost(node_a, stack_a_len, stack_b_len);
+	node_b->push_cost = count_regular_cost(node_b, stack_b_len, stack_a_len);
 }
 
-void	set_costs_a(t_node *stack_a, t_node *stack_b)
+void	set_costs_b(t_node *stack_b, t_node *stack_a)
 {
-	t_node	*cstack_a;
+	t_node	*cstack_b;
 
-	cstack_a = stack_a;
-	index_stack(stack_b);
-	while (stack_a)
+	cstack_b = stack_b;
+	index_stack(stack_a);
+	while (stack_b)
 	{
-		set_cost(stack_a, cstack_a, stack_b);
-		stack_a = stack_a->next;
+		set_cost(stack_b, cstack_b, stack_a);
+		stack_b = stack_b->next;
 	}
 }

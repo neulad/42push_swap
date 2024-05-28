@@ -6,35 +6,34 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 12:30:10 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/25 12:37:21 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/25 12:46:21 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include "../stack/stack_len.h"
 #include "../stack/find_min.h"
-#include "../stack/find_max.h"
 #include <limits.h>
 
-static t_node *find_closest_bigger(t_node *node_a, t_node *stack_b)
+static t_node	*find_closest_bigger(t_node *node_b, t_node *stack_a)
 {
-	t_node *max_node_b;
+	t_node *min_node_a;
 	long temp_nodes_diff;
 	t_node *res;
 
-	max_node_b = find_max(stack_b);
+	min_node_a = find_min(stack_a);
 	temp_nodes_diff = LONG_MAX;
-	while (stack_b)
+	while (stack_a)
 	{
-		if (node_a->nbr > stack_b->nbr && node_a->nbr - stack_b->nbr < temp_nodes_diff)
+		if (node_b->nbr < stack_a->nbr && stack_a->nbr - node_b->nbr < temp_nodes_diff)
 		{
-			temp_nodes_diff = (long)(node_a->nbr - stack_b->nbr);
-			res = stack_b;
+			temp_nodes_diff = (long)(stack_a->nbr - node_b->nbr);
+			res = stack_a;
 		}
-		stack_b = stack_b->next;
+		stack_a = stack_a->next;
 	}
 	if (temp_nodes_diff == LONG_MAX)
-		return (max_node_b);
+		return (min_node_a);
 	return (res);
 }
 
@@ -52,7 +51,7 @@ void	set_tagrets_b(t_node *stack_b, t_node *stack_a)
 			stack_b->above_median = 0;
 		else
 			stack_b->above_median = i >= (stack_b_len / 2);
-		stack_b->target_node = find_closest_bigger(stack_a, stack_b);
+		stack_b->target_node = find_closest_bigger(stack_b, stack_a);
 		stack_b = stack_b->next;
 		++i;
 	}

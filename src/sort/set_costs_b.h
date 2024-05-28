@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_stacks.h                                      :+:      :+:    :+:   */
+/*   set_costs_b.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 14:29:22 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/28 15:30:10 by ukireyeu         ###   ########.fr       */
+/*   Created: 2024/05/25 12:47:43 by ukireyeu          #+#    #+#             */
+/*   Updated: 2024/05/25 12:48:50 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,4 +14,4 @@
 
 #include "../push_swap.h"
 
-void	sort_stacks(t_node **stack_a, t_node **stack_b);
+void	set_costs_b(t_node *stack_b, t_node *stack_a);

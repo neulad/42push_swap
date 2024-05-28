@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_stacks.h                                      :+:      :+:    :+:   */
+/*   push_cheapest_b.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 14:29:22 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/28 15:30:10 by ukireyeu         ###   ########.fr       */
+/*   Created: 2024/05/25 13:13:52 by ukireyeu          #+#    #+#             */
+/*   Updated: 2024/05/25 13:22:57 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,4 +14,4 @@
 
 #include "../push_swap.h"
 
-void	sort_stacks(t_node **stack_a, t_node **stack_b);
+void	push_cheapest_b(t_node **stack_b, t_node **stack_a);

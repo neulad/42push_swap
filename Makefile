@@ -11,8 +11,13 @@ CC_STACK := ./src/stack/free_stack.c \
 CC_SORT := ./src/sort/sort_three.c \
 	./src/sort/sort_stacks.c \
 	./src/sort/set_targets_a.c \
+	./src/sort/set_targets_b.c \
 	./src/sort/set_costs_a.c \
-	./src/sort/push_cheapest_a.c
+	./src/sort/set_costs_b.c \
+	./src/sort/push_cheapest_a.c \
+	./src/sort/push_cheapest_b.c \
+	./src/sort/rrx_moves.c \
+	./src/sort/op_times.c
 CC_UTILS := ./src/utils/is_num.c ./src/utils/split_params.c ./src/utils/ft_atol.c
 CC_SRC := ./src/init.c ./src/push_swap.c
 CC_OPERATIONS := ./src/operations/push.c \

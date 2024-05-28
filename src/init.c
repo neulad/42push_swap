@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:49:49 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/23 12:54:16 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:14:33 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static void append_node(t_node **stack, int n)
 t_node	**fill_a(int argc, char **argv, t_node **stack_a)
 {
 	int		i;
-	int		temp_nbr;
+	long	temp_nbr;
 	int		flag_clean_argv;
 
 	i = 0;

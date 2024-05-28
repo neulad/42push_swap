@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:34:06 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/24 14:43:37 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:29:38 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include "./sort/sort_three.h"
 #include "./operations/swap.h"
 #include "./sort/sort_stacks.h"
+#include "./stack/free_stack.h"
 
 int	main(int argc, char **argv)
 {
@@ -28,12 +29,12 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	if (!check_argv(argc, argv))
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 		return (1);
 	}
 	if (!fill_a(argc, argv, &stack_a))
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 		return (1);
 	}
 	if (!is_sorted(stack_a))
@@ -43,8 +44,9 @@ int	main(int argc, char **argv)
 		else if (stack_len(stack_a) == 3)
 			sort_three(&stack_a);
 		else
-			sort_stacks(stack_a, stack_b);
+			sort_stacks(&stack_a, &stack_b);
 	}
+	free_stack(&stack_a);
 	return (0);
 }
 
