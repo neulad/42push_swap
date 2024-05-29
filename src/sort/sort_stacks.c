@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 14:29:30 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/28 15:54:54 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/29 20:23:18 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	index_stack(t_node *stack)
 		if (i == len / 2 && len % 2 != 0)
 			stack->above_median = 0;
 		else
-			stack->above_median = i >= (len / 2);
+			stack->above_median = i > (len / 2);
 		stack = stack->next;
 		++i;
 	}
@@ -50,9 +50,9 @@ static void	wrap_up(t_node **stack_a)
 	while ((*stack_a)->nbr != find_min(*stack_a)->nbr)
 	{
 		if (find_min(*stack_a)->above_median)
-			ra(stack_a);
-		else
 			rra(stack_a);
+		else
+			ra(stack_a);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 17:44:56 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/28 14:20:34 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/29 21:41:55 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,12 @@ static void	set_cost(t_node *node_a, t_node *stack_a, t_node *stack_b)
 
 	stack_a_len = stack_len(stack_a);
 	stack_b_len = stack_len(stack_b);
-	node_a->push_cost = count_regular_cost(node_a, stack_a_len, stack_b_len);
+	if (node_a->index == stack_a_len - 1
+		&& node_a->target_node->index == stack_b_len - 1)
+		node_a->push_cost = 1;
+	else
+		node_a->push_cost
+			= count_regular_cost(node_a, stack_a_len, stack_b_len);
 }
 
 void	set_costs_a(t_node *stack_a, t_node *stack_b)
