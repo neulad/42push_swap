@@ -6,17 +6,37 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 10:28:43 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/29 21:43:07 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/31 22:33:41 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include "../stack/stack_len.h"
 #include "../operations/push.h"
+#include "../operations/rotate.h"
 #include "../operations/rev_rotate.h"
 #include "./op_times.h"
 #include "../sort/rrx_moves.h"
 #include <limits.h>
+
+static void	index_stack(t_node *stack)
+{
+	int	i;
+	int	len;
+
+	i = 0;
+	len = stack_len(stack);
+	while (stack)
+	{
+		stack->index = i;
+		if (i == len / 2 && len % 2 != 0)
+			stack->above_median = 0;
+		else
+			stack->above_median = i >= (len / 2);
+		stack = stack->next;
+		++i;
+	}
+}
 
 static t_node	*find_cheapest(t_node *stack_a)
 {
@@ -36,17 +56,32 @@ static t_node	*find_cheapest(t_node *stack_a)
 	return (cheapest_node);
 }
 
-static int	check_rrr_a(t_node *cheapest_node, t_node *stack_a, t_node *stack_b)
+static void	save_costs(t_node *cheapest_node,
+	t_node **stack_a,
+	t_node **stack_b)
 {
-	int	stack_a_len;
-	int	stack_b_len;
-
-	stack_a_len = stack_len(stack_a);
-	stack_b_len = stack_len(stack_b);
-	if (cheapest_node->index == stack_a_len - 1
-		&& cheapest_node->target_node->index == stack_b_len - 1)
-		return (1);
-	return (0);
+	if (cheapest_node->above_median
+		&& cheapest_node->target_node->above_median)
+	{
+		while (cheapest_node->index != 0
+			&& cheapest_node->target_node->index != 0)
+		{
+			rrr(stack_a, stack_b);
+			index_stack(*stack_a);
+			index_stack(*stack_b);
+		}
+	}
+	else if (!cheapest_node->above_median
+		&& !cheapest_node->target_node->above_median)
+	{
+		while (cheapest_node->index != 0
+			&& cheapest_node->target_node->index != 0)
+		{
+			rr(stack_a, stack_b);
+			index_stack(*stack_a);
+			index_stack(*stack_b);
+		}
+	}
 }
 
 static void	a_rra_rb_moves(t_node *cheapest_node,
@@ -62,9 +97,8 @@ void	push_cheapest_a(t_node **stack_a, t_node **stack_b)
 	t_node	*cheapest_node;
 
 	cheapest_node = find_cheapest(*stack_a);
-	if (check_rrr_a(cheapest_node, *stack_a, *stack_b))
-		rrr(stack_a, stack_b);
-	else if (cheapest_node->above_median)
+	save_costs(cheapest_node, stack_a, stack_b);
+	if (cheapest_node->above_median)
 		if (cheapest_node->target_node->above_median)
 			a_rrx_moves(stack_a, stack_b, cheapest_node);
 	else

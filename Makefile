@@ -1,4 +1,5 @@
 NAME := push_swap
+NAME_BONUS := bonus
 
 CC_FLAGS := -Wall -Wextra -Werror
 CC_LIBS := -L./lib -I./lib -lft -lftprintf
@@ -25,10 +26,19 @@ CC_OPERATIONS := ./src/operations/push.c \
 	./src/operations/rotate.c \
 	./src/operations/swap.c
 
+CC_BONUS_SRC := ./bonus_src/checker.c ./src/init.c ./src/init_init.c
+CC_BONUS_UTILS := ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c
+CC_SILENT_OPERATIONS := ./bonus_src/silent_operations/push.c \
+	./bonus_src/silent_operations/rev_rotate.c \
+	./bonus_src/silent_operations/rotate.c \
+	./bonus_src/silent_operations/swap.c
+
 all:
 	@cc $(CC_FLAGS) $(CC_SRC) $(CC_UTILS) $(CC_STACK) $(CC_SORT) $(CC_OPERATIONS) $(CC_LIBS) -o $(NAME)
+bonus:
+	@cc $(CC_BONUS_SRC) $(CC_SILENT_OPERATIONS) $(CC_BONUS_UTILS) $(CC_FLAGS) $(CC_UTILS) $(CC_STACK) $(CC_SORT) $(CC_OPERATIONS) $(CC_LIBS) -o $(NAME_BONUS)
 clean:
 fclean:
 	@rm -rf $(NAME)
 re: fclean all
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

@@ -6,7 +6,7 @@
 /*   By: ukireyeu < ukireyeu@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 12:47:52 by ukireyeu          #+#    #+#             */
-/*   Updated: 2024/05/29 21:42:04 by ukireyeu         ###   ########.fr       */
+/*   Updated: 2024/05/31 22:29:02 by ukireyeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,19 +51,36 @@ static int	count_regular_cost(t_node *node_b, int stack_b_len, int stack_a_len)
 	}
 }
 
+static int	get_saved_cost(int len_to_edge_b, int len_to_edge_a)
+{
+	if (len_to_edge_a < len_to_edge_b)
+		return (len_to_edge_a);
+	else
+		return (len_to_edge_b);
+}
+
 static void	set_cost(t_node *node_b, t_node *stack_b, t_node *stack_a)
 {
-	int	stack_a_len;
-	int	stack_b_len;
+	int	saved_cost;
+	int	len_to_edge_b;
+	int	len_to_edge_a;
 
-	stack_a_len = stack_len(stack_a);
-	stack_b_len = stack_len(stack_b);
-	if (node_b->index == stack_b_len - 1
-		&& node_b->target_node->index == stack_a_len - 1)
-		node_b->push_cost = 1;
-	else
-		node_b->push_cost
-			= count_regular_cost(node_b, stack_b_len, stack_a_len);
+	saved_cost = 0;
+	if (node_b->above_median && node_b->target_node->above_median)
+	{
+		len_to_edge_b = stack_len(stack_b) - node_b->index;
+		len_to_edge_a = stack_len(stack_a) - node_b->target_node->index;
+		saved_cost = get_saved_cost(len_to_edge_b, len_to_edge_a);
+	}
+	else if (!node_b->above_median && !node_b->target_node->above_median)
+	{
+		len_to_edge_b = node_b->index;
+		len_to_edge_a = node_b->target_node->index;
+		saved_cost = get_saved_cost(len_to_edge_b, len_to_edge_a);
+	}
+	node_b->push_cost
+		= count_regular_cost(node_b, stack_len(stack_b),
+			stack_len(stack_a)) - saved_cost;
 }
 
 void	set_costs_b(t_node *stack_b, t_node *stack_a)
